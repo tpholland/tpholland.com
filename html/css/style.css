@@ -1,5 +1,5 @@
-body { margin: 0; padding: 50px 100px; }
-h1 { font-family: 'Raleway', sans-serif; font-size: 300%; }
+body { margin: 0; padding: 30px 60px; }
+h1 { font-family: 'Raleway', sans-serif; font-size: 300%; font-weight: 300;}
 p { color: #666; font-family: 'Raleway', sans-serif; font-size: 150%; line-height: 150%; }
 a { border-bottom: 1px solid #000; color: #000; text-decoration: none; }
-a:hover { border-bottom-color: #09F; color: #09F; }
+a:hover { border-bottom-color: #E66; color: #E66; }
