@@ -1,6 +1,6 @@
-body { margin: 0; padding: 30px 60px; }
+body { margin: 0; padding: 30px 60px; background:#F0F6F1}
 body * {max-width: 950px; }
 h1 { font-family: 'Raleway', sans-serif; font-size: 300%; font-weight: 300;}
 p { color: #666; font-family: 'Raleway', sans-serif; font-size: 150%; line-height: 150%; }
 a { border-bottom: 1px solid #000; color: #000; text-decoration: none; }
-a:hover { border-bottom-color: #E66; color: #E66; }
+a:hover { border-bottom-color: #B57D95; color: #B57D95; }
