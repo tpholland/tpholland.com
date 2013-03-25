@@ -2,7 +2,7 @@ body { font-family: 'Fanwood Text', serif; margin: 0; background-color:#F0F6F1; 
 body * { max-width: 950px; }
 article { padding: 4em; }
 h1 { color: #888; font-size: 300%; font-weight: 300; }
-h2 { color: #888; font-weight: 300; }
+h2 { font-weight: 300; }
 h3 { color: #333; font-size:150%; font-variant: small-caps; font-weight: 300; }
 p, li { color: #333; font-size: 150%; line-height: 150%; }
 a { border-bottom: 1px dotted #000; color: #000; text-decoration: none; }
@@ -15,7 +15,10 @@ sup a:hover, .footnotes a:hover { border-bottom: 1px dotted #B57D95; color: #B57
 .footnotes p, .footnotes li { font-size: 100%; }
 nav { position:fixed; top:0; background:#666; width: 100%; max-width: 100%; padding-left:1em; opacity: 0.9; }
 nav h2, nav ul, nav ul li { display:inline; padding:0; }
-nav h2, nav ul li { font-size: 150%; }
-nav ul li:before { content: '| ';} 
+nav h2, nav ul li { font-size: 150%; color: #F0F6F1; }
+nav ul li:before { content: '| ';}
+nav a { border-bottom: none; }
+nav h2 a { color: #B57D95; }
+nav a:hover, nav h2 a:hover { color: #F0F6F1; }
 /* When screen is smaller than 600px */
-@media only screen and (max-width:600px){ body { font-size: 80%; } article { padding: 2em; } }
+@media only screen and (max-width:600px){ body { font-size: 80%; } article { padding: 2em 4em; } nav h2, nav ul li { font-size: 130% } }
