@@ -2,8 +2,12 @@ body { font-family: 'Fanwood Text', serif; margin: 0; padding: 30px 60px; backgr
 body * { max-width: 950px; }
 h1 { color: #888; font-size: 300%; font-weight: 300; }
 h2 { color: #888; font-size: 200%; font-weight: 300; }
+h3 { color: #333; font-size:150%; font-variant: small-caps; font-weight: 300; }
 p, li { color: #333; font-size: 150%; line-height: 150%; }
-a { border-bottom: 1px solid #000; color: #000; text-decoration: none; }
+a { border-bottom: 1px dotted #000; color: #000; text-decoration: none; }
 a:hover { border-bottom-color: #B57D95; color: #B57D95; }
+blockquote p { color: #888; font-size: 110%; }
 q { quotes: '‘' '’' '“' '”'; }
+sup { line-height: 100% }
+sup a, .footnotes a { color: #888; font-size: 75%; border-bottom: none; }
 .footnotes p, .footnotes li { font-size: 100%; }
