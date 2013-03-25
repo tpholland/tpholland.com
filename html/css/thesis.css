@@ -12,9 +12,5 @@ sup { line-height: 100% }
 sup a, .footnotes a { color: #888; font-size: 75%; border-bottom: none; }
 sup a:hover, .footnotes a:hover { border-bottom: 1px dotted #B57D95; color: #B57D95; }
 .footnotes p, .footnotes li { font-size: 100%; }
-/*
- * *    When screen is smaller than 500px
- * */
-@media only screen and (max-width:500px){
-  body { padding: 10px; font-size: 20%; }
-}
+/* When screen is smaller than 600px */
+@media only screen and (max-width:600px){ body { padding: 20px; font-size: 80%; } }
