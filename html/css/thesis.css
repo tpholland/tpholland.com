@@ -18,7 +18,7 @@ sup a:hover, .footnotes a:hover { border-bottom: 1px dotted #B57D95; color: #B57
 nav { position:fixed; top:0; background:#666; width: 100%; max-width: 100%; padding-left:1em; opacity: 0.9; }
 nav h2, nav ul, nav ul li { display:inline; padding:0; }
 nav h2, nav ul li { font-size: 150%; }
-nav ul li span { color: #F0F6F1; border-bottom 1px solid #F0F6F1; }
+nav ul li span { color: #F0F6F1; border-bottom: 1px solid #F0F6F1; }
 nav ul li:before { content: '| ';}
 nav a { border-bottom: none; }
 nav h2 a { color: #B57D95; }
