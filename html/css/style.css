@@ -1,11 +1,9 @@
-body { margin: 0; padding: 30px 60px; background-color:#F0F6F1; }
+body { margin: 0; padding: 4em; background-color:#F0F6F1; }
 body * { font-family: 'Raleway', sans-serif; max-width: 950px; }
 h1 { font-size: 300%; font-weight: 300; }
 h2 { font-size: 200%; font-weight: 300; }
 p, li { color: #666; font-size: 150%; line-height: 150%; }
 a { border-bottom: 1px solid #000; color: #000; text-decoration: none; }
 a:hover { border-bottom-color: #B57D95; color: #B57D95; }
-ul li { list-style-type: none; padding-left: 1.5em; text-indent: -2em; }
-ul li:before { content: '§ '; }
 /* When screen is smaller than 600px */
-@media only screen and (max-width:600px){ body { padding: 20px; font-size: 80%; } }
+@media only screen and (max-width:600px){ body { padding: 2em; font-size: 80%; } }

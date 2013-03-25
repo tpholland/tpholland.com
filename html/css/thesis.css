@@ -5,6 +5,8 @@ h1 { color: #888; font-size: 300%; font-weight: 300; }
 h2 { font-weight: 300; }
 h3 { color: #333; font-size:150%; font-variant: small-caps; font-weight: 300; }
 p, li { color: #333; font-size: 150%; line-height: 150%; }
+ul li { list-style-type: none; padding-left: 1.5em; text-indent: -2em; }
+ul li:before { content: '§ '; }
 a { border-bottom: 1px dotted #000; color: #000; text-decoration: none; }
 a:hover { border-bottom-color: #B57D95; color: #B57D95; }
 blockquote p { font-size: 110%; }
@@ -16,7 +18,7 @@ sup a:hover, .footnotes a:hover { border-bottom: 1px dotted #B57D95; color: #B57
 nav { position:fixed; top:0; background:#666; width: 100%; max-width: 100%; padding-left:1em; opacity: 0.9; }
 nav h2, nav ul, nav ul li { display:inline; padding:0; }
 nav h2, nav ul li { font-size: 150%; }
-nav ul li span { color: #F0F6F1; border-bottom 2px solid #F0F6F1; }
+nav ul li span { color: #F0F6F1; border-bottom 1px solid #F0F6F1; }
 nav ul li:before { content: '| ';}
 nav a { border-bottom: none; }
 nav h2 a { color: #B57D95; }
