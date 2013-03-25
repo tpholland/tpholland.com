@@ -22,4 +22,4 @@ nav a { border-bottom: none; }
 nav h2 a { color: #B57D95; }
 nav a:hover, nav h2 a:hover { color: #888; }
 /* When screen is smaller than 600px */
-@media only screen and (max-width:600px){ body { font-size: 80%; } article { padding: 2em 4em; } nav h2, nav ul li { font-size: 125% } }
+@media only screen and (max-width:600px){ body { font-size: 80%; } article { padding: 2em; } nav h2, nav ul li { font-size: 125% } }
