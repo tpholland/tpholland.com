@@ -15,6 +15,8 @@ sup { line-height: 100% }
 sup a, .footnotes a { color: #888; font-size: 75%; border-bottom: none; }
 sup a:hover, .footnotes a:hover { border-bottom: 1px dotted #B57D95; color: #B57D95; }
 .footnotes p, .footnotes li { font-size: 100%; }
+.footnotes p { margin: 0.5em 0; }
+.footnotes li, sup a { padding-top: 3.5em; margin-top: -3.5em; }
 nav { position:fixed; top:0; background:#666; width: 100%; max-width: 100%; padding-left:1em; opacity: 0.9; }
 nav h2, nav ul, nav ul li { display:inline; padding:0; }
 nav h2, nav ul li { font-size: 150%; }
