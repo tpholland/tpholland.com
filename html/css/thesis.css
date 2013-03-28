@@ -9,6 +9,7 @@ ul li { list-style-type: none; padding-left: 1.5em; text-indent: -2em; }
 ul li:before { content: '§ '; }
 a { border-bottom: 1px dotted #000; color: #000; text-decoration: none; }
 a:hover { border-bottom-color: #B57D95; color: #B57D95; }
+img { border: solid #FFF 10px; box-shadow: 3px 3px 6px #888; width:10em; }
 blockquote p { font-size: 110%; }
 q { quotes: '‘' '’' '“' '”'; }
 sup { line-height: 100% }
