@@ -7,8 +7,6 @@ set -e
 
 NGINX_DIR=${OPENSHIFT_DATA_DIR}
 
-umask 077
-
 echo "Preprocessing nginx config."
 cat ${OPENSHIFT_REPO_DIR}etc/nginx.conf.template | \
     ${OPENSHIFT_REPO_DIR}misc/expand_vars \
