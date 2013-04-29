@@ -1,0 +1,44 @@
+# This nginx config file is preprocessed to replace all ${VARIABLES}
+# with their values.
+
+worker_processes 1;
+
+error_log ${OPENSHIFT_LOG_DIR}error.log;
+pid ${OPENSHIFT_RUN_DIR}nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+
+http {
+    include mime.types;
+    default_type application/octet-stream;
+
+    sendfile on;
+    keepalive_timeout 65;
+    access_log ${OPENSHIFT_LOG_DIR}access.log;
+
+    port_in_redirect off;
+    server_tokens off;
+
+    server {
+        listen ${OPENSHIFT_INTERNAL_IP}:${OPENSHIFT_INTERNAL_PORT};
+        server_name localhost;
+
+        # Site specific configuration follows. Extend it with anything
+        # you want to serve.
+
+        location / {
+           root ${OPENSHIFT_REPO_DIR}html;
+           disable_symlinks on from=${OPENSHIFT_REPO_DIR};
+           index index.html intro.html;
+        }
+
+        error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+            auth_request off;
+            root html;
+        }
+    }
+}
