@@ -5,7 +5,7 @@
 
 set -e
 
-NGINX_DIR=${OPENSHIFT_RUNTIME_DIR}nginx/
+NGINX_DIR=${OPENSHIFT_DATA_DIR}
 
 umask 077
 
