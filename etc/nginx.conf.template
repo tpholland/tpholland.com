@@ -3,8 +3,8 @@
 
 worker_processes 1;
 
-error_log ${OPENSHIFT_LOG_DIR}error.log;
-pid ${OPENSHIFT_RUN_DIR}nginx.pid;
+error_log ${OPENSHIFT_DATA_DIR}logs/error.log;
+pid ${OPENSHIFT_DATA_DIR}logs/nginx.pid;
 
 events {
     worker_connections 1024;
@@ -17,10 +17,7 @@ http {
 
     sendfile on;
     keepalive_timeout 65;
-    access_log ${OPENSHIFT_LOG_DIR}access.log;
-
-    port_in_redirect off;
-    server_tokens off;
+    access_log ${OPENSHIFT_DATA_DIR}logs/access.log;
 
     server {
         listen ${OPENSHIFT_INTERNAL_IP}:${OPENSHIFT_INTERNAL_PORT};
@@ -31,7 +28,6 @@ http {
 
         location / {
            root ${OPENSHIFT_REPO_DIR}html;
-           disable_symlinks on from=${OPENSHIFT_REPO_DIR};
            index index.html intro.html;
         }
 

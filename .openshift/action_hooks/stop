@@ -2,7 +2,7 @@
 # The logic to stop your application should be put in this script.
 
 echo "Stopping nginx."
-kill -QUIT `cat ${OPENSHIFT_RUN_DIR}nginx.pid`
+kill -QUIT `cat ${OPENSHIFT_DATA_DIR}logs/nginx.pid`
 
 # Always succeed, otherwise OpenShift declines to run build and start
 # hooks.
