@@ -1,4 +1,9 @@
 #!/bin/bash
 # The logic to stop your application should be put in this script.
-kill `ps -ef | grep testrubyserver.rb | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
+
+echo "Stopping nginx."
+kill -QUIT `cat ${OPENSHIFT_RUN_DIR}nginx.pid`
+
+# Always succeed, otherwise OpenShift declines to run build and start
+# hooks.
 exit 0
