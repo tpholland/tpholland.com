@@ -3,3 +3,70 @@
 # available.  Otherwise it will execute while your application is stopped
 # before the deploy step.  This script gets executed directly, so it
 # could be python, php, ruby, etc.
+
+# Exit on first error.
+set -e
+
+# Trace each line.
+# set -x
+
+NGINX_VERSION='1.2.6'
+ROOT_DIR=${OPENSHIFT_DATA_DIR}
+BUILD_DIR=${OPENSHIFT_TMP_DIR}/build
+
+# OpenShift sets GIT_DIR to . which terminates pull with an error:
+# Not a git repository: '.'
+unset GIT_DIR
+
+umask 077
+
+function install_nginx() {
+    mkdir -p ${BUILD_DIR}
+    pushd ${BUILD_DIR}
+    local pkg=nginx-${NGINX_VERSION}.tar.gz
+
+    echo "Downloading ${pkg}."
+    wget http://nginx.org/download/${pkg}
+    echo "Unpacking ${pkg}."
+    tar xfz ${pkg}
+    pushd nginx-${NGINX_VERSION}
+
+    echo "Downloading pcre."
+    wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.31.tar.bz2
+    echo "Unpacking pcre."
+    tar xfj pcre-8.31.tar.bz2
+
+    echo "Configuring nginx."
+    ./configure --with-pcre=./pcre-8.31 \
+        --prefix=${ROOT_DIR}
+
+    echo "Compiling nginx."
+    make install
+    popd
+    popd
+    echo "Cleaning build directory."
+    rm -rf ${BUILD_DIR}
+}
+
+
+function check_nginx() {
+    local nginx_bin=${ROOT_DIR}sbin/nginx
+
+    if [[ ! -a ${nginx_bin} ]]; then
+        echo "nginx not installed."
+        install_nginx
+    else
+        local nginx_version=`${nginx_bin} -v 2>&1|cut -d/ -f2`
+
+        if [[ ${NGINX_VERSION} != ${nginx_version} ]]; then
+            echo "nginx old, version: ${nginx_version}."
+            install_nginx
+        else
+            echo "nginx up to date, version: ${nginx_version}."
+        fi
+    fi
+}
+
+check_nginx
+
+exit 0
