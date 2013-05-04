@@ -11,8 +11,15 @@ set -e
 # set -x
 
 NGINX_VERSION='1.2.6'
+PYTHON_VERSION='3.2.3'
 ROOT_DIR=${OPENSHIFT_DATA_DIR}
-BUILD_DIR=${OPENSHIFT_TMP_DIR}/build
+BUILD_DIR=${OPENSHIFT_TMP_DIR}build/
+BIN_DIR=${OPENSHIFT_DATA_DIR}bin/
+PYTHON_TEMP=${OPENSHIFT_TMP_DIR}python/
+PYTHON_FILE=Python-${PYTHON_VERSION}.tar.bz2
+PYTHON_URL=http://www.python.org/ftp/python/${PYTHON_VERSION}/${PYTHON_FILE}
+PYTHON_TMP=${OPENSHIFT_TMP_DIR}python/
+PYTHON_DIST_URL=http://python-distribute.org/distribute_setup.py
 
 # OpenShift sets GIT_DIR to . which terminates pull with an error:
 # Not a git repository: '.'
@@ -48,7 +55,6 @@ function install_nginx() {
     rm -rf ${BUILD_DIR}
 }
 
-
 function check_nginx() {
     local nginx_bin=${ROOT_DIR}sbin/nginx
 
@@ -67,6 +73,29 @@ function check_nginx() {
     fi
 }
 
+function install_python() {
+
+}
+
+function check_python() {
+    local python_bin=${BIN_DIR}python
+
+    if [[ ! -a ${python_bin} ]]; then
+        echo "python3 not installed."
+        install_python
+    else
+        local python_version=`${python_bin} --version 2>&1|cut -d/ -f2`
+
+        if [[ ${PYTHON_VERSION} != ${python_version} ]]; then
+            echo "nginx old, version: ${python_version}."
+            install_python
+        else
+            echo "python up to date, version: ${python_version}."
+        fi
+    fi
+}
+
 check_nginx
+check_python
 
 exit 0
