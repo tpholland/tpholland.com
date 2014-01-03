@@ -3,7 +3,7 @@ body * { font-family: 'Raleway', sans-serif; max-width: 50em; }
 h1 { font-size: 300%; font-weight: 300; }
 h2 { font-size: 200%; font-weight: 300; }
 p, li { color: #FFF; font-size: 150%; line-height: 150%; }
-a { color: #C40; text-decoration: none; }
+a { color: #FFF; background-color: #C40; text-decoration: none; }
 a:hover { background-color: #FFF; color: #C40; }
 /* When screen is smaller than 600px */
 @media only screen and (max-width:600px){ body { padding: 2em; font-size: 80%; } }
