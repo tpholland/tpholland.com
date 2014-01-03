@@ -74,7 +74,7 @@ function check_nginx() {
 }
 
 function install_python() {
-
+    echo "Aha!"
 }
 
 function check_python() {
