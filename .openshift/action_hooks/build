@@ -82,7 +82,7 @@ function install_python() {
     echo "Downloading ${PYTHON_FILE}"
     wget ${PYTHON_URL}
     echo "Unpacking ${PYTHON_FILE}"
-    tar xfj
+    tar xfj ${PYTHON_FILE}
     pushd python-${PYTHON_VERSION}
 
     echo "Configuring Python"
