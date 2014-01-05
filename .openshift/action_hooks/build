@@ -102,7 +102,7 @@ function check_python() {
         echo "python3 not installed."
         install_python
     else
-        local python_version=`${python_bin} --version 2>&1|cut -d/ -f2`
+        local python_version=`${python_bin} --version 2>&1|cut -d' ' -f2`
 
         if [[ ${PYTHON_VERSION} != ${python_version} ]]; then
             echo "Python old, version: ${python_version}."
