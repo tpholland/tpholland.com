@@ -11,7 +11,7 @@ set -e
 # set -x
 
 NGINX_VERSION='1.4.4'
-PYTHON_VERSION='3.2.3'
+PYTHON_VERSION='3.3.3'
 PCRE_VERSION='8.34'
 ROOT_DIR=${OPENSHIFT_DATA_DIR}
 BUILD_DIR=${OPENSHIFT_TMP_DIR}build/
@@ -83,7 +83,7 @@ function install_python() {
     wget ${PYTHON_URL}
     echo "Unpacking ${PYTHON_FILE}"
     tar xfj ${PYTHON_FILE}
-    pushd python-${PYTHON_VERSION}
+    pushd Python-${PYTHON_VERSION}
 
     echo "Configuring Python"
 
