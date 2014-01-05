@@ -86,6 +86,9 @@ function install_python() {
     pushd Python-${PYTHON_VERSION}
 
     echo "Configuring Python"
+    ./configure --prefix=${ROOT_DIR}
+    echo "Compiling Python"
+    make install
 
     popd
     popd
