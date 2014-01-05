@@ -75,7 +75,6 @@ function check_nginx() {
 }
 
 function install_python() {
-    echo "Aha!"
     mkdir -p ${PYTHON_TEMP}
     pushd ${PYTHON_TEMP}
 
@@ -97,7 +96,7 @@ function install_python() {
 }
 
 function check_python() {
-    local python_bin=${BIN_DIR}python
+    local python_bin=${BIN_DIR}python3
 
     if [[ ! -a ${python_bin} ]]; then
         echo "python3 not installed."
@@ -107,7 +106,7 @@ function check_python() {
 
         if [[ ${PYTHON_VERSION} != ${python_version} ]]; then
             echo "Python old, version: ${python_version}."
-            install_python
+            # install_python
         else
             echo "python up to date, version: ${python_version}."
         fi
