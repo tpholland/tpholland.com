@@ -21,6 +21,7 @@ PYTHON_FILE=Python-${PYTHON_VERSION}.tar.bz2
 PYTHON_URL=http://www.python.org/ftp/python/${PYTHON_VERSION}/${PYTHON_FILE}
 PYTHON_TMP=${OPENSHIFT_TMP_DIR}python/
 PYTHON_DIST_URL=http://python-distribute.org/distribute_setup.py
+VIRTUALENV_DIR=${OPENSHIFT_HOMEDIR}diy-0.1/runtime/virtualenv/
 
 # OpenShift sets GIT_DIR to . which terminates pull with an error:
 # Not a git repository: '.'
@@ -113,7 +114,21 @@ function check_python() {
     fi
 }
 
+function check_virtualenv() {
+    if [[ ! -a  ${VIRTUALENV_DIR} ]]; then
+        echo "Initializing virtualenv."
+        virtualenv --python=${BIN_DIR}python3 ${VIRTUALENV_DIR}
+    fi
+}
+
+function activate_virtualenv() {
+    echo "Activating virtualenv"
+    source ${VIRTUALENV_DIR}bin/activate
+}
+
 check_nginx
 check_python
+check_virtualenv
+activate_virtualenv
 
 exit 0
