@@ -76,6 +76,21 @@ function check_nginx() {
 
 function install_python() {
     echo "Aha!"
+    mkdir -p ${PYTHON_TEMP}
+    pushd ${PYTHON_TEMP}
+
+    echo "Downloading ${PYTHON_FILE}"
+    wget ${PYTHON_URL}
+    echo "Unpacking ${PYTHON_FILE}"
+    tar xfj
+    pushd python-${PYTHON_VERSION}
+
+    echo "Configuring Python"
+
+    popd
+    popd
+    echo "Cleaning Python build directory"
+    rm -rf ${PYTHON_TEMP}
 }
 
 function check_python() {
@@ -88,7 +103,7 @@ function check_python() {
         local python_version=`${python_bin} --version 2>&1|cut -d/ -f2`
 
         if [[ ${PYTHON_VERSION} != ${python_version} ]]; then
-            echo "nginx old, version: ${python_version}."
+            echo "Python old, version: ${python_version}."
             install_python
         else
             echo "python up to date, version: ${python_version}."
