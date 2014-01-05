@@ -12,6 +12,7 @@ set -e
 
 NGINX_VERSION='1.4.4'
 PYTHON_VERSION='3.2.3'
+PCRE_VERSION='8.34'
 ROOT_DIR=${OPENSHIFT_DATA_DIR}
 BUILD_DIR=${OPENSHIFT_TMP_DIR}build/
 BIN_DIR=${OPENSHIFT_DATA_DIR}bin/
@@ -39,12 +40,12 @@ function install_nginx() {
     pushd nginx-${NGINX_VERSION}
 
     echo "Downloading pcre."
-    wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.34.tar.bz2
+    wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-${PCRE_VERSION}.tar.bz2
     echo "Unpacking pcre."
-    tar xfj pcre-8.34.tar.bz2
+    tar xfj pcre-${PCRE_VERSION}.tar.bz2
 
     echo "Configuring nginx."
-    ./configure --with-pcre=./pcre-8.34 \
+    ./configure --with-pcre=./pcre-${PCRE_VERSION} \
         --prefix=${ROOT_DIR}
 
     echo "Compiling nginx."
