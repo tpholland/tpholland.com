@@ -1,5 +1,5 @@
-body { margin: 0; padding: 4em; color:#FFF; background-color: #C50; font-size: 1em; }
-body * { font-family: 'Raleway', sans-serif; max-width: 50em; }
+body { margin: 0; padding: 4em; color:#FFF; background-color: #C50; font-size: 1em; background: radial-gradient(#C60, #C50);}
+body * { font-family: 'Raleway', sans-serif; max-width: 38em; }
 h1 { font-size: 300%; font-weight: 300; }
 h2 { font-size: 200%; font-weight: 300; }
 p, li { color: #FFF; font-size: 150%; line-height: 150%; }
