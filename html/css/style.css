@@ -1,8 +1,11 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
 html { height:100%; }
-body { height: 100%; margin: 0; padding: 0; font-family: 'Raleway', sans-serif; font-size: 1em; color:#531; background-color: #AFA; background: linear-gradient(#ADA, #ACA); background-repeat: no-repeat; background-attachment: fixed; }
-h1 { font-size: 3em; padding: 0 2em; max-width: 20em; font-weight: 300; }
-h2, img { font-size: 2em; padding: 0 3em; max-width: 30em; font-weight: 300; }
-p, li { font-size: 1.5em; padding: 0 4em; max-width: 40em; color: #531; line-height: 150%; }
+body { height: 100%; font-family: 'Raleway', sans-serif; font-size: 1em; line-height: 1; color:#531; background-color: #AFA; background: linear-gradient(#ADA, #ACA); background-repeat: no-repeat; background-attachment: fixed; }
+body > *:first-child { padding-top: 1em; }
+body > *:last-child { padding-bottom: 2em; }
+h1 { font-size: 3em; padding: 0.4em 1em; max-width: 18em; font-weight: 300; }
+h2, img { font-size: 2em; padding: 0.4em 1.5em; max-width: 27em; font-weight: 300; }
+p, li { font-size: 1.5em; padding: 0.4em 2em; max-width: 38em; color: #531; line-height: 1.5; }
 a { color: #531; background-color: #AEA; text-decoration: none; }
 a:hover { background-color: transparent; color: #852; }
 /* When screen is smaller than 600px */
