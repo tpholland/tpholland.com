@@ -1,9 +1,9 @@
-body { margin: 0; padding: 4em; color:#531; background-color: #AFA; font-size: 1em; background: linear-gradient(#ADA, #ACA);}
-body * { font-family: 'Raleway', sans-serif; max-width: 38em; }
-h1 { font-size: 300%; font-weight: 300; }
-h2 { font-size: 200%; font-weight: 300; }
-p, li { color: #531; font-size: 150%; line-height: 150%; }
+html { height:100%; }
+body { height: 100%; margin: 0; padding: 0; font-family: 'Raleway', sans-serif; font-size: 1em; color:#531; background-color: #AFA; background: linear-gradient(#ADA, #ACA); background-repeat: no-repeat; background-attachment: fixed; }
+h1 { font-size: 3em; padding: 0 2em; max-width: 20em; font-weight: 300; }
+h2, img { font-size: 2em; padding: 0 3em; max-width: 30em; font-weight: 300; }
+p, li { font-size: 1.5em; padding: 0 4em; max-width: 40em; color: #531; line-height: 150%; }
 a { color: #531; background-color: #AEA; text-decoration: none; }
 a:hover { background-color: transparent; color: #852; }
 /* When screen is smaller than 600px */
-@media only screen and (max-width:600px){ body { padding: 2em; font-size: 80%; } }
+@media only screen and (max-width:600px){ body { font-size: 0.7em; } }
