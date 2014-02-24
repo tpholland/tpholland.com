@@ -5,6 +5,10 @@
         <title>NSAN Map Example</title>
         <style>
             @import "nsan-map.css";
+            @font-face {
+            font-family: "nsan";
+            src: url("nsan.woff") format('woff');
+            }
             circle,
             path {
               cursor: pointer;
@@ -15,7 +19,7 @@
             }
             text {
               cursor: pointer;
-              font: 12px FSAlbert,sans-serif;
+              font: 12px nsan,sans-serif;
             }
         </style>
     </head>
