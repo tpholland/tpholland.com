@@ -1,0 +1,491 @@
+{"name": "NSAN Map", "children": [
+  {
+    "name": "Business Support"
+  },
+  {
+    "name": "CE&I",
+    "children": [
+    {
+        "name": "Radiometrics and Special Instruments",
+        "children": [ 
+        {
+            "name": "Radiation Protection Instruments"
+        },
+        {
+            "name": "Stack Sampling and Monitoring"
+        },
+        {
+            "name": "Criticality Incident Detection"
+        },
+        {
+            "name": "Radiation Tolerance"
+        },
+        {
+            "name": "Nuclear Materials Assay"
+        },
+        {
+            "name": "Statistics"
+        },
+        {
+            "name": "Non-Destructive Testing"
+        },
+        {
+            "name": "Safeguards"
+        },
+        {
+            "name": "Radiometric Physics"
+        },
+        {
+            "name": "Electronics"
+        }
+        ]
+    },
+    {
+        "name": "Programmable Based Systems",
+        "children": [ 
+        {
+            "name": "Software Engineering"
+        },
+        {
+            "name": "Programmable Logic Controllers"
+        },
+        {
+            "name": "Supervisory Control and Data Acquisition"
+        },
+        {
+            "name": "Distributed Control Systems"
+        },
+        {
+            "name": "Management Information Systems"
+        },
+        {
+            "name": "Networks"
+        },
+        {
+            "name": "Independent PES"
+        },
+        {
+            "name": "Safety Instrumented Systems"
+        }
+        ]
+    },
+    {
+        "name": "Electrical Supply Infrastructure",
+        "children": [ 
+        {
+            "name": "Knowledge of HV/LV Systems"
+        },
+        {
+            "name": "Telecontrol"
+        },
+        {
+            "name": "Generators"
+        },
+        {
+            "name": "DC Systems"
+        },
+        {
+            "name": "Mobile Diesel Connection Unit"
+        },
+        {
+            "name": "Battery Technology"
+        },
+        {
+            "name": "Battery Theory"
+        },
+        {
+            "name": "Lighting Protection"
+        },
+        {
+            "name": "Lighting Systems"
+        },
+        {
+            "name": "Fire Alarm Systems"
+        },
+        {
+            "name": "Installation Design"
+        },
+        {
+            "name": "Electromagnetic Compatibility"
+        },
+        {
+            "name": "Energy Efficiency inc Metering"
+        },
+        {
+            "name": "Power Supply System Modelling"
+        },
+        {
+            "name": "Seismic Requirements"
+        }
+        ]
+    },
+    {
+        "name": "CE&I Safety Systems",
+        "children": [ 
+        {
+            "name": "E/E CE&I Hardwired Safety Systems"
+        },
+        {
+            "name": "PES CE&I Safety Systems"
+        },
+        {
+            "name": "Smart Instruments in Safety Systems"
+        },
+        {
+            "name": "Machinery Regulations in Safety Systems"
+        },
+        {
+            "name": "Alarms"
+        },
+        {
+            "name": "Design Justification and DJRs"
+        },
+        {
+            "name": "COSR and LTPR Methodologies and DARs"
+        },
+        {
+            "name": "Shield Door CE&I Safety Systems"
+        },
+        {
+            "name": "Cranes & Lifting Gear CE&I Safety Systems"
+        },
+        {
+            "name": "Reactor Automatic Protection System"
+        }
+        ]
+    },
+    {
+        "name": "Process Instruments",
+        "children": [ 
+        {
+            "name": "FieldBus Foundation/Hart Protocols"
+        },
+        {
+            "name": "Control Panel Design"
+        },
+        {
+            "name": "Dumb and Smart Instruments"
+        },
+        {
+            "name": "ISA100Wireless Protocol"
+        },
+        {
+            "name": "Control Valves"
+        },
+        {
+            "name": "ATEX"
+        },
+        {
+            "name": "Instrument Data-Sheets and Instrument Loop Schematics"
+        },
+        {
+            "name": "Instrument Installation"
+        },
+        {
+            "name": "Instrument Piping and Tubing"
+        },
+        {
+            "name": "Conventional Process Instruments"
+        }
+        ]
+    },
+    {
+        "name": "Remote Handling and Lifting Equipment",
+        "children": [ 
+        {
+            "name": "Design of In-Cell Equipment"
+        },
+        {
+            "name": "In-Cell Cable/Connector Design/Management"
+        },
+        {
+            "name": "In-Cell CCTV and Lighting"
+        },
+        {
+            "name": "SONAR and Imaging Systems"
+        },
+        {
+            "name": "Glove Boxes"
+        },
+        {
+            "name": "Flask & Gamma Gates"
+        },
+        {
+            "name": "High Integrity Personnel Access Systems"
+        },
+        {
+            "name": "Flask Handling Cranes"
+        },
+        {
+            "name": "Robotics"
+        },
+        {
+            "name": "Flask Handlers"
+        },
+        {
+            "name": "Control Rods/Drive Motors"
+        },
+        {
+            "name": "Radiation Tolerant Materials and Components"
+        }
+        ]
+    },
+    {
+        "name": "Computer Aided Engineering (CE&I)",
+        "children": [ 
+        {
+            "name": "Control System Functional Specifications"
+        },
+        {
+            "name": "CE&I Systems"
+        },
+        {
+            "name": "Cable Design (Amtech)"
+        }
+        ]
+    },
+    {
+        "name": "Security in Design",
+        "children": [ 
+        {
+            "name": "CE&I Security in Design"
+        },
+        {
+            "name": "Intruder Detection, CCTV, Access Control, and Safeguards"
+        },
+        {
+            "name": "Computer Based Systems Important to Safety"
+        },
+        {
+            "name": "PES Maintenance"
+        },
+        {
+            "name": "Network Security"
+        },
+        {
+            "name": "Radio Communications and EMC"
+        },
+        {
+            "name": "Nuclear Materials Detection and Measurements"
+        },
+        {
+            "name": "Installation Design"
+        },
+        {
+            "name": "Installation, Commissioning and Maintenance"
+        },
+        {
+            "name": "Functional Requirements (Security Support)"
+        }
+        ]
+    }
+    ]
+  },
+  {
+    "name": "Nuclear Safety",
+    "children": [ 
+    {
+        "name": "Nuclear Safety Management",
+        "children": [ 
+        {
+            "name": "Review and Audit"
+        }
+        ]
+    },
+    {
+        "name": "Safety Case",
+        "children": [ 
+        {
+            "name": "ALARP"
+        }
+        ]
+    },
+    {
+        "name": "Deterministic Safety Assessment",
+        "children": [ 
+        {
+            "name": "SWIFT"
+        }
+        ]
+    },
+    {
+        "name": "Probabilistic Safety Assessment",
+        "children": [ 
+        {
+            "name": "PSA Results"
+        }
+        ]
+    },
+    {
+        "name": "Criticality",
+        "children": [ 
+        {
+            "name": "Codes and Standards"
+        }
+        ]
+    },
+    {
+        "name": "Shielding",
+        "children": [ 
+        {
+            "name": "Radiation Physics"
+        }
+        ]
+    },
+    {
+        "name": "Emergency Planning",
+        "children": [ 
+        {
+            "name": "Performance Assessment"
+        }
+        ]
+    },
+    {
+        "name": "Health Physics / Radiological Protection",
+        "children": [ 
+        {
+            "name": "Legislative Compliance"
+        }
+        ]
+    },
+    {
+        "name": "Human Factors",
+        "children": [ 
+        {
+            "name": "Human Factors Integration"
+        }
+        ]
+    }
+    ]
+  },
+  {
+    "name": "Mech Eng",
+    "children": [ 
+    {
+        "name": "Thermal",
+        "children": [ 
+        {
+            "name": "Heat Transfer Equipment"
+        }
+        ]
+    },
+    {
+        "name": "Mechanical Handling 'Out-cell'",
+        "children": [ 
+        {
+            "name": "Lifting Equipment"
+        }
+        ]
+    },
+    {
+        "name": "Remote Handling, Robotics and Control 'In-Cell'",
+        "children": [ 
+        {
+            "name": "Remote Handling 'In-Cell'"
+        }
+        ]
+    },
+    {
+        "name": "Encapsulation Technologies and Equipment",
+        "children": [ 
+        {
+            "name": "Safe Methods of Storing Waste"
+        }
+        ]
+    },
+    {
+        "name": "Special Purpose Equipment",
+        "children": [ 
+        {
+            "name": "Storage Systems"
+        }
+        ]
+    },
+    {
+        "name": "Shielding",
+        "children": [ 
+        {
+            "name": "Shield Doors"
+        }
+        ]
+    },
+    {
+        "name": "Fire Protection",
+        "children": [ 
+        {
+            "name": "Mechanical Fire Systems"
+        }
+        ]
+    },
+    {
+        "name": "Materials",
+        "children": [ 
+        {
+            "name": "Engineering Science"
+        }
+        ]
+    },
+    {
+        "name": "Safety Case",
+        "children": [ 
+        {
+            "name": "Engineering Substantiation"
+        }
+        ]
+    },
+    {
+        "name": "Materials Transport Packaging",
+        "children": [ 
+        {
+            "name": "Packages and Containers"
+        }
+        ]
+    },
+    {
+        "name": "Codes, Standards and Regulations",
+        "children": [ 
+        {
+            "name": "Codes and Standards"
+        }
+        ]
+    },
+    {
+        "name": "Wet Process Systems",
+        "children": [ 
+        {
+            "name": "Fluidic Devices"
+        }
+        ]
+    },
+    {
+        "name": "Mechanical Assessment",
+        "children": [ 
+        {
+            "name": "Interlocks"
+        }
+        ]
+    },
+    {
+        "name": "Mechanical Design Process",
+        "children": [ 
+        {
+            "name": "Design for Manufacture/Construct"
+        }
+        ]
+    }
+    ]
+  },
+  {
+    "name": "Project Management"
+  },
+  {
+    "name": "Others?"
+  },
+  {
+    "name": "Decommissioning"
+  },
+  {
+    "name": "Waste Management"
+  }
+]
+}
