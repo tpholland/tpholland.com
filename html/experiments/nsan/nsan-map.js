@@ -202,7 +202,7 @@ function weighting(d) {
 
 function update_legend(d)
     {
-     legend.html("<h2>"+ d.key +"</h2>")
+     legend.html("<h2>"+ d.key.replace(/\./g, ' > ') +"</h2>")
         legend.transition().duration(200).style("opacity","1");
 // legend.attr("display", function(d) { return (d.type == "holder" ? "none" : null); }); // hide text from holder elements
     }
