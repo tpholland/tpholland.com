@@ -1,5 +1,3 @@
-
-
 var margin = {top: 350, right: 480, bottom: 350, left: 480},
     radius = Math.min(margin.top, margin.right, margin.bottom, margin.left) - 10;
 
@@ -23,18 +21,14 @@ var partition = d3.layout.partition()
 var arc = d3.svg.arc()
     .startAngle(function(d) { return d.x; })
     .endAngle(function(d) { return d.x + d.dx - .01 / (d.depth + .5); })
-//    .innerRadius(function(d) { return radius / 3 * d.depth; })
-//    if 1 = 1 if 2 = 4
     .innerRadius(function(d) { 
         return radius / 5 * ((d.depth * 3) - 2); 
     })
-//    .outerRadius(function(d) { return radius / 3 * (d.depth + 1) - 1; });
-//    if 1 = 4, if 2 = 5
     .outerRadius(function(d) { 
         return radius / 5 * (d.depth + 3); 
     });
 
-d3.json("nsan-map2.json", function(error, root) {
+d3.json("nsan-map.json", function(error, root) {
 
   // Compute the initial layout on the entire tree to sum sizes.
   // Also compute the full name and fill color for each node,
