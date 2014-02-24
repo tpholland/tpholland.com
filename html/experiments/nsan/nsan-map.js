@@ -22,7 +22,7 @@ var arc = d3.svg.arc()
     .startAngle(function(d) { return d.x; })
     .endAngle(function(d) { return d.x + d.dx - .01 / (d.depth + .5); })
     .innerRadius(function(d) { 
-        return radius / 5 * ((d.depth * 3) - 2); 
+        return radius / 5 * (d.depth * 2); 
     })
     .outerRadius(function(d) { 
         return radius / 5 * (d.depth + 3); 
@@ -50,7 +50,7 @@ d3.json("nsan-map.json", function(error, root) {
       .value(function(d) { return d.sum; });
 
   var center = svg.append("circle")
-      .attr("r", radius / 5)
+      .attr("r", radius / 5 * 2)
       .on("click", zoomOut);
 
   center.append("title")
