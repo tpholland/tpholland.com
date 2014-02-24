@@ -61,7 +61,7 @@ d3.json("nsan-map.json", function(error, root) {
     .enter().append("path")
       .attr("d", arc)
       .style("fill", function(d) { return d.fill; })
-      .style("fill-opacity", function(d) { return 1 / d.depth;})
+      .style("fill-opacity", function(d) { return 1 / ((d.depth * 2) - 1);})
       .each(function(d) { this._current = updateArc(d); })
       .on("mouseover", update_legend)
       .on("mouseout", remove_legend)
