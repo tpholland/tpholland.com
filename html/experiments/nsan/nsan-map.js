@@ -154,7 +154,7 @@ d3.json(jsonSource, function(error, root) {
     .enter().append("text")
       .attr("class", "label")
       .style("fill", "black")
-      .attr( 'filter', 'url(#dropshadow)' ) // This is the filter we prepared earlier 
+//      .attr( 'filter', 'url(#dropshadow)' ) // This is the filter we prepared earlier 
       .style("text-anchor", "middle")
       .attr("transform", function(d) { 
           return "translate(" + arc.centroid(d) + ")"; 
@@ -237,7 +237,7 @@ d3.json(jsonSource, function(error, root) {
       .attr("class", "label")
       .style("opacity", 0)
       .style("fill", "black")
-      .attr( 'filter', 'url(#dropshadow)' ) // use predefined filter      
+//      .attr( 'filter', 'url(#dropshadow)' ) // use predefined filter      
       .style("text-anchor", "middle")
       .attr("transform", function(d) { 
           return "translate(" + arc.centroid(d) + ")"; 
