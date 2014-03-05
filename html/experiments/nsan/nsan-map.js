@@ -1,7 +1,8 @@
 // Specify the map data file to read in. This should be in d3 json format, 
 // which is sort of documented at .... All nodes need a name attribute, which
 // must not contain a full-stop (because that will break the *key* function)
-var jsonSource = "nsan-map.json" 
+// var jsonSource = "nsan-map.json" 
+var jsonSource = "https://nsan-dev.mkmapps.com/Map/JsonMap/04EA3364-348F-E311-8078-D067E5EC4C69"
 
 // Specify the size of the wheel area and set the radius, which is the basis
 // of our layout
