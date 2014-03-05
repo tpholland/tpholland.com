@@ -7,17 +7,20 @@ div#breadcrumb {
   padding:100px 0;
   }
 div#breadcrumb div {
-    background-color: #B4CBE5;
+    background-color: #98D5EB;
     color: #454033;
     height: 75px;
     margin: 5px;
     padding: 20px;
 }
 div#breadcrumb div:nth-child(2) {
-    background-color: #78A7D0;
+    background-color: #6FC5E4;
 }
 div#breadcrumb div:nth-child(3) {
-    background-color: #3C83BB;
+    background-color: #42B5DC;
+}
+div#breadcrumb div:nth-child(3) {
+    background-color: #00A5D4;
 }
 div#breadcrumb div:last-child {
     color: #000000;
@@ -27,6 +30,7 @@ div#wheel {
   }
 div#descriptor {
   padding:100px 0;
+  float:left;
   }
 .map1Stop1 { stop-color: #F58236; }
 .map1Stop2 { stop-color: #F26100; }

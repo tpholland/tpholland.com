@@ -1,8 +1,3 @@
-// Specify the map data file to read in. This should be in d3 json format, 
-// which is sort of documented at .... All nodes need a name attribute, which
-// must not contain a full-stop (because that will break the *key* function)
-var jsonSource = "nsan-map.json" 
-
 // Specify the size of the wheel area and set the radius, which is the basis
 // of our layout
 var margin = {top: 350, right: 340, bottom: 350, left: 340},
@@ -166,22 +161,25 @@ d3.json(jsonSource, function(error, root) {
       })
       .on("click", zoomIn)
       .text(function(d, i) { return d.label;} );
-
   function zoomIn(p) {
     if (p.depth > 1) p = p.parent;
-    if (!p.children) 
-
-        return;
+    if (!p.children) {
+      updateDescriptor(p);
+    }else{
     svg.selectAll("text.label").data([]).exit().remove()
     updateBreadcrumb(p)
-    zoom(p, p);
+    destroyDescriptor()
+    zoom(p, p);}
   }
 
   function zoomOut(p) {
-    if (!p.parent) return;
+    if (!p.parent) {
+      destroyDescriptor();
+    }else{
     svg.selectAll("text.label").data([]).exit().remove()
     updateBreadcrumb(p.parent)
-    zoom(p.parent, p);
+    destroyDescriptor()
+    zoom(p.parent, p);}
   }
 
   // Zoom to the specified new root.
@@ -280,13 +278,23 @@ function updateArc(d) {
 var breadcrumb = d3.select("#breadcrumb");
 breadcrumb.html("<div>NSAN Wheel</div>");
 
-function breadCrumb(p) { 
+function breadcrumbText(p) { 
   return p.key === "" ? p.key : "<div>" + p.key.replace(/\./g, '</div><div>') + "</div>";
 }
 
 function updateBreadcrumb(p) {
-  breadcrumb.html("<div>NSAN Wheel</div>" + breadCrumb(p))
-  breadcrumb.transition().duration(200).style("opacity","1");
+  breadcrumb.html("<div>NSAN Wheel</div>" + breadcrumbText(p));
+}
+
+var descriptor = d3.select("#descriptor");
+
+function updateDescriptor(p) {
+  descriptor.html("<p>" + p.description + ". If you don't see a proper description here it's because not all of the data is fully loaded in.</p>")
+  descriptor.transition().duration(200).style("opacity","1");
+}
+
+function destroyDescriptor() {
+  descriptor.transition().duration(200).style("opacity","0");
 }
 
 d3.select(self.frameElement).style("height", margin.top + margin.bottom + "px");
