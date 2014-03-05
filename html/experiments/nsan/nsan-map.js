@@ -1,23 +1,101 @@
-var margin = {top: 350, right: 480, bottom: 350, left: 480},
+// Specify the map data file to read in. This should be in d3 json format, 
+// which is sort of documented at .... All nodes need a name attribute, which
+// must not contain a full-stop (because that will break the *key* function)
+var jsonSource = "nsan-map.json" 
+
+// Specify the size of the wheel area and set the radius, which is the basis
+// of our layout
+var margin = {top: 350, right: 340, bottom: 350, left: 340},
     radius = Math.min(margin.top, margin.right, margin.bottom, margin.left) - 10;
 
-var hue = d3.scale.category20();
-
-var luminance = d3.scale.sqrt()
-    .domain([0, 1e6])
-    .clamp(true)
-    .range([90, 20]);
-
+// Create the wheel svg element and a main group to hold the wheel
 var svg = d3.select("#wheel").append("svg")
     .attr("width", margin.left + margin.right)
     .attr("height", margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+// Define some filters. These let us apply nice effects to the svg. For
+// starters we'll make a drop shadow and a gradient
+var defs = svg.append( 'defs' );
+
+// The gradient first...
+var backgroundGradient = defs.append( 'linearGradient' )
+    .attr( 'id', 'mapGradient1' ) // Used to reference reference the gradient
+    .attr( 'x1', '0' )
+    .attr( 'x2', '0' )
+    .attr( 'y1', '0' )
+    .attr( 'y2', '1' );
+
+  backgroundGradient.append( 'stop' )
+    .attr( 'class', 'map1Stop1' )
+    .attr( 'offset', '0%' );
+
+  backgroundGradient.append( 'stop' )
+    .attr( 'class', 'map1Stop2' )
+    .attr( 'offset', '100%' );
+
+// Now the drop shadow
+var filter = defs.append( 'filter' )
+                 .attr( 'id', 'dropshadow' ) // Used to reference the shadow
+
+// Apply a colour matrix to bleach the source...
+var transfer= filter.append( 'feComponentTransfer' )
+      .attr( 'in', 'SourceGraphic' )
+      .attr( 'result', 'lighten' );
+
+transfer.append( 'feFuncR' )
+      .attr( 'type', 'discrete')
+      .attr( 'tableValues', '1.0 0.0' );
+
+transfer.append( 'feFuncG' )
+      .attr( 'type', 'discrete')
+      .attr( 'tableValues', '1.0 0.0' );
+
+transfer.append( 'feFuncB' )
+      .attr( 'type', 'discrete')
+      .attr( 'tableValues', '1.0 0.0' );
+
+// ...now take the output from that and blur it...
+filter.append( 'feGaussianBlur' )
+      .attr( 'in', 'lighten' )
+      .attr( 'stdDeviation', 3 ) // !!! important parameter - blur
+      .attr( 'result', 'blur' );
+
+// ...and then offset the output from that...
+filter.append( 'feOffset' )
+      .attr( 'in', 'blur' )
+      .attr( 'dx', 2 ) // !!! important parameter - x-offset
+      .attr( 'dy', 1 ) // !!! important parameter - y-offset
+      .attr( 'result', 'offsetBlur' );
+
+// ...merge the result with original image
+var feMerge = filter.append( 'feMerge' );
+
+// first layer result of blur and offset
+feMerge.append( 'feMergeNode' )
+       .attr( "in", "offsetBlur" );
+
+// original image on top
+feMerge.append( 'feMergeNode' )
+       .attr( 'in', 'SourceGraphic' );
+// That's enough filters for now.
+
+// Partition is one of d3's built in layouts. See .... for documentation.
+// Define a new partition layout. We'll sort the members alphabetically, but
+// if you don't want sorting just do .sort(none)
 var partition = d3.layout.partition()
     .sort(function(a, b) { return d3.ascending(a.name, b.name); })
     .size([2 * Math.PI, radius]);
 
+// d3 is going to help us build some arcs. We'll build an inner arc for items
+// with a depth of 1 - this is our main wheel area where we'll list the active
+// competencies. This is going to have an inner radius of 2 fifths of the
+// total radius and an outer radius of four fifths of the total radius. 
+// We'll also build a secondary arc with an inner radius of four fifths of the
+// total radius and an outer radius which equals the total radius. The
+// secondary arc gives us a preview of how many child competencies each of the
+// main competencies has.
 var arc = d3.svg.arc()
     .startAngle(function(d) { return d.x; })
     .endAngle(function(d) { return d.x + d.dx - .01 / (d.depth + .5); })
@@ -28,11 +106,18 @@ var arc = d3.svg.arc()
         return radius / 5 * (d.depth + 3); 
     });
 
-d3.json("nsan-map.json", function(error, root) {
+// Now we're going to build the wheel. We'll start by reading in a json file, 
+// as defined at the top of this script 
 
-  // Compute the initial layout on the entire tree to sum sizes.
-  // Also compute the full name and fill color for each node,
-  // and stash the children so they can be restored as we descend.
+d3.json(jsonSource, function(error, root) {
+
+  // We'll work out the sum sizes for each node - nodes in the main arc (ie
+  // those with a depth of 1) should be equal sizes. Because of the way the d3
+  // partition layout works this means that we'll have to work out how many
+  // children each competence has, and assign a value to the children of 1/by
+  // that number.
+  // Also compute the full name of each competence and stash the children so 
+  // they can be restored as we descend.
   partition
       .nodes(root)
       .forEach(function(d) {
@@ -41,7 +126,6 @@ d3.json("nsan-map.json", function(error, root) {
         if (d.depth > 1) d.sum = 1 / Object.keys(d.parent.children).length; 
         d.label = d.name;
         d.key = key(d);
-        d.fill = fill(d);
       });
 
   // Now redefine the value function to use the previously-computed sum.
@@ -49,8 +133,13 @@ d3.json("nsan-map.json", function(error, root) {
       .children(function(d, depth) { return depth < 2 ? d._children : null; })
       .value(function(d) { return d.sum; });
 
+  // Now start to build up the svg graphic, starting with the central circle.
+  // I've actually made it bigger that the total radius, because you might
+  // want to fill it with a nice gradient or whatever, but if you just want to
+  // fill the centre of the wheel, you could make r equal radius / 5 * 2
   var center = svg.append("circle")
-      .attr("r", radius / 5 * 2)
+      .attr("r", radius + 5)
+      .style("fill", "white")
       .on("click", zoomOut);
 
   center.append("title")
@@ -60,11 +149,9 @@ d3.json("nsan-map.json", function(error, root) {
       .data(partition.nodes(root).slice(1))
     .enter().append("path")
       .attr("d", arc)
-      .style("fill", function(d) { return d.fill; })
-      .style("fill-opacity", function(d) { return 1 / ((d.depth * 2) - 1);})
+      .style("fill", "url(#mapGradient1)")
+      .style("fill-opacity", function(d) { return 1 / d.depth;})
       .each(function(d) { this._current = updateArc(d); })
-      .on("mouseover", update_legend)
-      .on("mouseout", remove_legend)
       .on("click", zoomIn);
 
   var labels = svg.selectAll("text.label")
@@ -72,6 +159,7 @@ d3.json("nsan-map.json", function(error, root) {
     .enter().append("text")
       .attr("class", "label")
       .style("fill", "black")
+      .attr( 'filter', 'url(#dropshadow)' ) // This is the filter we prepared earlier 
       .style("text-anchor", "middle")
       .attr("transform", function(d) { 
           return "translate(" + arc.centroid(d) + ")"; 
@@ -81,14 +169,18 @@ d3.json("nsan-map.json", function(error, root) {
 
   function zoomIn(p) {
     if (p.depth > 1) p = p.parent;
-    if (!p.children) return;
+    if (!p.children) 
+
+        return;
     svg.selectAll("text.label").data([]).exit().remove()
+    updateBreadcrumb(p)
     zoom(p, p);
   }
 
   function zoomOut(p) {
     if (!p.parent) return;
     svg.selectAll("text.label").data([]).exit().remove()
+    updateBreadcrumb(p.parent)
     zoom(p.parent, p);
   }
 
@@ -132,10 +224,8 @@ d3.json("nsan-map.json", function(error, root) {
 
       path.enter().append("path")
           .style("fill-opacity", function(d) { return d.depth === 2 - (root === p) ? 1 : 0; })
-          .style("fill", function(d) { return d.fill; })
+          .style("fill", "url(#mapGradient1)")
           .on("click", zoomIn)
-          .on("mouseover",update_legend)
-          .on("mouseout",remove_legend)          
           .each(function(d) { this._current = enterArc(d); });
 
       path.transition()
@@ -149,6 +239,7 @@ d3.json("nsan-map.json", function(error, root) {
       .attr("class", "label")
       .style("opacity", 0)
       .style("fill", "black")
+      .attr( 'filter', 'url(#dropshadow)' ) // use predefined filter      
       .style("text-anchor", "middle")
       .attr("transform", function(d) { 
           return "translate(" + arc.centroid(d) + ")"; 
@@ -174,14 +265,6 @@ function key(d) {
   return k.reverse().join(".");
 }
 
-function fill(d) {
-  var p = d;
-  while (p.depth > 1) p = p.parent;
-  var c = d3.lab(hue(p.name));
-  c.l = luminance(d.sum);
-  return c;
-}
-
 function arcTween(b) {
   var i = d3.interpolate(this._current, b);
   this._current = i(0);
@@ -194,23 +277,17 @@ function updateArc(d) {
   return {depth: d.depth, x: d.x, dx: d.dx};
 }
 
-var legend = d3.select("#legend");
+var breadcrumb = d3.select("#breadcrumb");
+breadcrumb.html("<div>NSAN Wheel</div>");
 
-function weighting(d) {
-    return 1 / Object.keys(d.parent.children).length;
+function breadCrumb(p) { 
+  return p.key === "" ? p.key : "<div>" + p.key.replace(/\./g, '</div><div>') + "</div>";
 }
 
-function update_legend(d)
-    {
-     legend.html("<h2>"+ d.key.replace(/\./g, ' > ') +"</h2>")
-        legend.transition().duration(200).style("opacity","1");
-// legend.attr("display", function(d) { return (d.type == "holder" ? "none" : null); }); // hide text from holder elements
-    }
-
-    function remove_legend(d)
-    {
-        legend.transition().duration(1000).style("opacity","0");
-// legend.html("<h2>&nbsp;</h2>")
-    }
+function updateBreadcrumb(p) {
+  breadcrumb.html("<div>NSAN Wheel</div>" + breadCrumb(p))
+  breadcrumb.transition().duration(200).style("opacity","1");
+}
 
 d3.select(self.frameElement).style("height", margin.top + margin.bottom + "px");
+
