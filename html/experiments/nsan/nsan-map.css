@@ -1,6 +1,6 @@
 circle, path { cursor: pointer; }
 circle { pointer-events: all; }
-text { cursor: pointer; font: 12px FSAlbert,sans-serif; }
+text { cursor: pointer; font: 12px nsan,sans-serif; }
 div#breadcrumb { 
   float:left;
   width:200px;
