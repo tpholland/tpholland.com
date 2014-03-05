@@ -289,7 +289,7 @@ function updateBreadcrumb(p) {
 var descriptor = d3.select("#descriptor");
 
 function updateDescriptor(p) {
-  descriptor.html("<p>" + p.description + ". If you don't see a proper description here it's because not all of the data is fully loaded in.</p>")
+  descriptor.html("<p>" + p.description + " (Note: If you don't see a proper description here it's because not all of the data is fully loaded in.)</p>")
   descriptor.transition().duration(200).style("opacity","1");
 }
 
