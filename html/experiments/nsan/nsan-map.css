@@ -35,6 +35,7 @@ div#descriptor {
   }
 div#descriptor p {
   background-color:#B4A88C;
+  padding: 15px;
   border-radius:15px;
 }
 .map1Stop1 { stop-color: #F58236; }
