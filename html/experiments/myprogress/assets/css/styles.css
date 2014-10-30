@@ -11,7 +11,7 @@ body, .content {
 /*                     Typography                       */
 /********************************************************/
 h1, h2, h3, h4, h5, h6 { 
-	font-family: "Open sans", Helvetica, Arial;
+	font-family: "Fira sans", Helvetica, Arial;
 	font-weight: 300;
 }
 
@@ -41,7 +41,7 @@ a:visited { color: #D87563; }
 	padding-bottom: 0px;
 }
 .header h1 {
-	font-family: "Open sans", Arial;
+	font-family: "Fira sans", Arial;
 	font-size: 40px;
 	font-weight: bold;
 	margin: 35px 0 10px 0;
@@ -60,7 +60,7 @@ a:visited { color: #D87563; }
 }
 .header p { font-size: 15px; line-height: 1.2em;}
 .header .lead {
-	font-family: "Open sans", Arial;
+	font-family: "Fira sans", Arial;
 	color: rgba(255,255,255,.9);
 	line-height: 1.2em;
 	font-size: 18px;

@@ -30,51 +30,7 @@ var backgroundGradient = defs.append( 'linearGradient' )
     .attr( 'class', 'map1Stop2' )
     .attr( 'offset', '100%' );
 
-// Now the drop shadow
-var filter = defs.append( 'filter' )
-                 .attr( 'id', 'dropshadow' ) // Used to reference the shadow
-
-// Apply a colour matrix to bleach the source...
-var transfer= filter.append( 'feComponentTransfer' )
-      .attr( 'in', 'SourceGraphic' )
-      .attr( 'result', 'lighten' );
-
-transfer.append( 'feFuncR' )
-      .attr( 'type', 'discrete')
-      .attr( 'tableValues', '1.0 0.0' );
-
-transfer.append( 'feFuncG' )
-      .attr( 'type', 'discrete')
-      .attr( 'tableValues', '1.0 0.0' );
-
-transfer.append( 'feFuncB' )
-      .attr( 'type', 'discrete')
-      .attr( 'tableValues', '1.0 0.0' );
-
-// ...now take the output from that and blur it...
-filter.append( 'feGaussianBlur' )
-      .attr( 'in', 'lighten' )
-      .attr( 'stdDeviation', 3 ) // !!! important parameter - blur
-      .attr( 'result', 'blur' );
-
-// ...and then offset the output from that...
-filter.append( 'feOffset' )
-      .attr( 'in', 'blur' )
-      .attr( 'dx', 2 ) // !!! important parameter - x-offset
-      .attr( 'dy', 1 ) // !!! important parameter - y-offset
-      .attr( 'result', 'offsetBlur' );
-
-// ...merge the result with original image
-var feMerge = filter.append( 'feMerge' );
-
-// first layer result of blur and offset
-feMerge.append( 'feMergeNode' )
-       .attr( "in", "offsetBlur" );
-
-// original image on top
-feMerge.append( 'feMergeNode' )
-       .attr( 'in', 'SourceGraphic' );
-// That's enough filters for now.
+// There used to be a drop shadow here but it was dodgy. Maybe one day.
 
 // Partition is one of d3's built in layouts. See .... for documentation.
 // Define a new partition layout. We'll sort the members alphabetically, but
@@ -154,7 +110,6 @@ d3.json(jsonSource, function(error, root) {
     .enter().append("text")
       .attr("class", "label")
       .style("fill", "black")
-//      .attr( 'filter', 'url(#dropshadow)' ) // This is the filter we prepared earlier 
       .style("text-anchor", "middle")
       .attr("transform", function(d) { 
           return "translate(" + arc.centroid(d) + ")"; 
@@ -237,7 +192,6 @@ d3.json(jsonSource, function(error, root) {
       .attr("class", "label")
       .style("opacity", 0)
       .style("fill", "black")
-//      .attr( 'filter', 'url(#dropshadow)' ) // use predefined filter      
       .style("text-anchor", "middle")
       .attr("transform", function(d) { 
           return "translate(" + arc.centroid(d) + ")"; 
@@ -289,7 +243,7 @@ function updateBreadcrumb(p) {
 var descriptor = d3.select("#descriptor");
 
 function updateDescriptor(p) {
-  descriptor.html("<p>" + p.description + " (Note: If you don't see a proper description here it's because not all of the data is fully loaded in.)</p>")
+  descriptor.html("<p>" + p.description + "</p>")
   descriptor.transition().duration(200).style("opacity","1");
 }
 
