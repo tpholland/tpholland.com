@@ -17,8 +17,8 @@ ROOT_DIR=${OPENSHIFT_DATA_DIR}
 BUILD_DIR=${OPENSHIFT_TMP_DIR}build/
 BIN_DIR=${OPENSHIFT_DATA_DIR}bin/
 PYTHON_TEMP=${OPENSHIFT_TMP_DIR}python/
-PYTHON_FILE=Python-${PYTHON_VERSION}.tar.bz2
-PYTHON_URL=http://www.python.org/ftp/python/${PYTHON_VERSION}/${PYTHON_FILE}
+PYTHON_FILE=Python-${PYTHON_VERSION}.tar.xz
+PYTHON_URL=https://www.python.org/ftp/python/${PYTHON_VERSION}/${PYTHON_FILE}
 PYTHON_TMP=${OPENSHIFT_TMP_DIR}python/
 PYTHON_DIST_URL=http://python-distribute.org/distribute_setup.py
 VIRTUALENV_DIR=${OPENSHIFT_HOMEDIR}diy-0.1/runtime/virtualenv/
@@ -82,7 +82,7 @@ function install_python() {
     echo "Downloading ${PYTHON_FILE}"
     wget ${PYTHON_URL}
     echo "Unpacking ${PYTHON_FILE}"
-    tar xfj ${PYTHON_FILE}
+    tar xf ${PYTHON_FILE}
     pushd Python-${PYTHON_VERSION}
 
     echo "Configuring Python"
