@@ -1,12 +1,12 @@
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
 html { height:100%; }
-body { height: 100%; font-family: 'Fira Sans', sans-serif; font-size: 1em; line-height: 1; color:#531; background-color: #AFA; background: linear-gradient(#ADA, #ACA); background-repeat: no-repeat; background-attachment: fixed; }
+body { height: 100%; font-family: 'Fanwood Text', serif; font-size: 1em; line-height: 1; color:#333; background-color: #FFF; background: linear-gradient(#FFFFFF, #FAFFFA); background-repeat: no-repeat; background-attachment: fixed; }
 body > *:first-child { padding-top: 1em; }
 body > *:last-child { padding-bottom: 2em; }
-h1 { font-size: 3em; padding: 0.4em 1em; margin-bottom: 0.4em; max-width: 6.5em; font-weight: 900; background: #531; color: #ADA; border-bottom-right-radius: 0.5em; border-top-right-radius: 0.5em; text-shadow: 2px 2px 2px #852; }
+h1 { font-size: 3em; padding: 0.4em 1em; margin-bottom: 0.4em; max-width: 6.5em; text-shadow: 2px 2px 2px #888; }
 h2, img { font-size: 2em; padding: 0.4em 1.5em; font-weight: 300; float: left; }
-p, li { font-size: 1.5em; padding: 0.4em 2em; max-width: 38em; color: #531; line-height: 1.5; }
-a { color: #531; background-color: #AEA; text-decoration: none; }
-a:hover { background-color: transparent; color: #852; }
+p, li { font-size: 1.5em; padding: 0.4em 2em; max-width: 38em; margin: 0 auto; line-height: 1.5; }
+a { color: #333; background-color: #EFE; text-decoration: none; }
+a:hover { background-color: transparent; text-decoration: none; }
 /* When screen is smaller than 600px */
 @media only screen and (max-width:600px){ body { font-size: 0.7em; } }
