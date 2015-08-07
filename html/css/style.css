@@ -4,6 +4,7 @@ body { height: 100%; font-family: 'Alegreya', serif; font-size: 100%; line-heigh
 h1 { font-size: 300%; font-family:'Alegreya SC', serif; margin: 1em; text-align: center; text-shadow: 1px 1px 3px #999; }
 img { display:block; margin:0 auto; height: 7em; width: 7em; background-color: #DFF; border: 0.7em solid #6FF; border-radius: 5em; }
 p, li { font-size: 150%; padding: 0.4em 0; line-height: 1.5; }
+.sc { font-family:'Alegreya SC', serif; }
 a { color: #333; background-color: #CFF; text-decoration: none; }
 a:hover { background-color: transparent; text-decoration: none; }
 /* When screen is small */
