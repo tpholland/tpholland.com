@@ -4,10 +4,10 @@ body { height: 100%; font-family: 'Alegreya', serif; font-size: 100%; line-heigh
 h1 { padding: 1em 0; font-size: 300%; font-family:'Alegreya SC', serif; text-align: center; text-shadow: 1px 1px 3px #999; }
 img { display:block; margin:0 auto; height: 6em; width: 6em; background-color: #DFF; border: 0.5em solid #6FF; border-radius: 3em; }
 p, li { font-size: 150%; padding: 0; text-indent: 2.5em; -moz-hyphens: auto; -ms-hyphens: auto; -webkit-hyphens: auto; hyphens: auto; text-align: justify; }
-p:first-of-type {text-indent: 0;}
+p:first-of-type {text-indent: 0.3em;}
 p:last-of-type {text-indent: 0; padding: 1em 0}
 .sc { font-family:'Alegreya SC', serif; }
-.dc { float: left; padding: 0; font-size: 3.45em; line-height: 0; margin-top: 0.14em; height: 0.62em; }
+.dc { float: left; padding: 0; font-size: 3.45em; line-height: 0; margin: 0.14em 0.1em 0 0; height: 0.62em; text-indent:0; }
 .postdc { display: inline-block; height: 0.62em; }
 a { color: #333; background-color: #CFF; text-decoration: none; }
 a:hover { background-color: transparent; text-decoration: none; }
