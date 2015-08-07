@@ -7,6 +7,8 @@ p, li { font-size: 150%; padding: 0; text-indent: 2.5em; -moz-hyphens: auto; -ms
 p:first-of-type {text-indent: 0;}
 p:last-of-type {text-indent: 0; padding: 1em 0}
 .sc { font-family:'Alegreya SC', serif; }
+.dc { float: left; padding: 0; font-size: 3.45em; line-height: 0; margin-top: 0.14em; height: 0.62em; }
+.postdc { style="display: inline-block; height: 0.62em;" }
 a { color: #333; background-color: #CFF; text-decoration: none; }
 a:hover { background-color: transparent; text-decoration: none; }
 /* When screen is small */
